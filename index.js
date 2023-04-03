@@ -67,7 +67,9 @@ newspapers.forEach((newspaper) => {
 });
 
 app.get("/", (req, res) => {
-  res.json("Welcome to my Climate Change News API");
+  res.json(
+    "Welcome to my Climate Change News API hosted in HEROKU wich is SHIT"
+  );
 });
 
 // nodemon makes the server restart after every change. Without nodemon, you'd need to do restart the server manually to be able to see the changes.
