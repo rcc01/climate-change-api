@@ -1,8 +1,8 @@
 const PORT = process.env.PORT || 8000;
-const express = require("express");
-// like fetch in JS
-const axios = require("axios");
-const cheerio = require("cheerio");
+
+import express from "express";
+import axios from "axios";
+import { load } from "cheerio";
 
 const app = express();
 const url = "https://www.theguardian.com/environment/climate-crisis";
@@ -50,7 +50,7 @@ const articles = [];
 newspapers.forEach((newspaper) => {
   axios.get(newspaper.address).then((response) => {
     const html = response.data;
-    const $ = cheerio.load(html);
+    const $ = load(html);
 
     $("a:contains(climate), a:contains(cambio climático)", html).each(
       function () {
@@ -97,7 +97,7 @@ app.get("/news/:newspaperId", (req, res) => {
     .get(newspaperAddress)
     .then((response) => {
       const html = response.data;
-      const $ = cheerio.load(html);
+      const $ = load(html);
       const specificArticles = [];
 
       $("a:contains(climate), a:contains(climático)", html).each(function () {
