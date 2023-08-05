@@ -115,3 +115,7 @@ app.get("/news/:newspaperId", (req, res) => {
 });
 
 app.listen(PORT, () => console.log(`server running on PORT ${PORT}`));
+
+// apply frontend w/typesript
+// apply buttons to /news
+//open in a new window news
